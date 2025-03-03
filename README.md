@@ -1,4 +1,4 @@
-# 🎈 Blank app template
+#  6-Pack AB Test App
 
 A simple Streamlit app template for you to modify!
 
