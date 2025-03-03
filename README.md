@@ -8,7 +8,9 @@ https://docs.streamlit.io/develop/tutorials/databases/bigquery
 
 When launching the app below, you can use the following query to get started that will utilize my GBQ project:
 
-```SELECT * FROM `ab-test-app-452422.testdata.6pack_data` ```
+   ```
+   SELECT * FROM `ab-test-app-452422.testdata.6pack_data`
+   ```
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
 
