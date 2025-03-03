@@ -112,28 +112,35 @@ def create_posterior_distribution_chart(df, assignment_col):
 
 st.title("BigQuery Query Interface")
 
+# Initialize session state variables if they don't exist
+if 'df' not in st.session_state:
+    st.session_state.df = None
+if "event1_column" not in st.session_state:
+    st.session_state.event1_column = None
+if "event2_column" not in st.session_state:
+    st.session_state.event2_column = None
+if "assignment_column" not in st.session_state:
+    st.session_state.assignment_column = None
+
+# Sidebar setup is moved outside the button logic
 with st.sidebar:
     st.header("Column Selection")
-    if 'df' not in st.session_state:
-        st.session_state.df = None
-    if "event1_column" not in st.session_state:
-        st.session_state.event1_column = None
-    if "event2_column" not in st.session_state:
-        st.session_state.event2_column = None
-    if "assignment_column" not in st.session_state:
-        st.session_state.assignment_column = None
-
+    
     if st.session_state.df is not None:
         all_columns = st.session_state.df.columns.tolist()
-        st.session_state.event1_column = st.selectbox(
-            "Select Event 1 Column:", all_columns, key="event1_column_selectbox"
-        )
-        st.session_state.event2_column = st.selectbox(
-            "Select Event 2 Column:", all_columns, key="event2_column_selectbox"
-        )
-        st.session_state.assignment_column = st.selectbox(
-            "Select Assignment Column:", all_columns, key="assignment_column_selectbox"
-        )
+    else:
+        all_columns = [] #provide an empty list so the drop downs still render.
+
+    st.session_state.event1_column = st.selectbox(
+        "Select Event 1 Column:", all_columns, key="event1_column_selectbox", index= 0 if len(all_columns) > 0 else 0, disabled= len(all_columns) == 0
+    )
+    st.session_state.event2_column = st.selectbox(
+        "Select Event 2 Column:", all_columns, key="event2_column_selectbox", index = 0 if len(all_columns) > 0 else 0, disabled= len(all_columns) == 0
+    )
+    st.session_state.assignment_column = st.selectbox(
+        "Select Assignment Column:", all_columns, key="assignment_column_selectbox", index = 0 if len(all_columns) > 0 else 0, disabled= len(all_columns) == 0
+    )
+    
 
 query_text = st.text_area("Enter your BigQuery SQL query here:", height=200)
 
