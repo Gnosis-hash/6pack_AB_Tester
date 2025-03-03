@@ -12,7 +12,7 @@ When launching the app below, you can use the following query to get started tha
    SELECT * FROM `ab-test-app-452422.testdata.6pack_data`
    ```
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://6packabtest.streamlit.app/)
 
 ### How to run it on your own machine
 
